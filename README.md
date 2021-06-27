@@ -37,15 +37,15 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![test1 raw][./test_images/test1.jpg]
-![test1 undistorted][./output_images/test1_undistorted.jpg]
+![test1 raw](./test_images/test1.jpg)
+![test1 undistorted](./output_images/test1_undistorted.jpg)
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 
 Image in each frame of the video is undistorted using `cv2.undistort()` before further processing.
-![Sample undistorted Image][./output_images/test3_undistorted.jpg]
+![Sample undistorted Image](./output_images/test3_undistorted.jpg)
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -61,7 +61,7 @@ Step 4 : Compute the combined binary threshold image by applying a threshold for
 `performBinaryThreshold` sets combined image pixels to 255 if both saturation image and sobel-magnitude image are above a certain threhsold: 
                 `combined_img[np.logical_and(satImg > 150, magImg > 70)] = 255`
 
-![binary thresholded image.][./output_images/test1_thresholded_binary.jpg]
+![binary thresholded image.](./output_images/test1_thresholded_binary.jpg)
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -79,7 +79,7 @@ top_left = (0, 0)
 botom_right = (Image width, 0)
 botom_left = (Image width, Image height)
 
-![Perspective transformed image][./output_images/test2_perspective_transformed.jpg]
+![Perspective transformed image](./output_images/test2_perspective_transformed.jpg)
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
@@ -107,7 +107,7 @@ I did this in the function `findCurvatureAndVehPos`. Radius of curvature and Pos
 
 The image with regions between the lane lines colored is warped using `getwarpedImg` but with inverse source and destination points. This is done in the pipeline function and the resulting image is overlapped with the source image. The output looks like this : 
 
-![test3_final_overlapped][./output_images/test3_final_overlapped.jpg]
+![test3_final_overlapped](./output_images/test3_final_overlapped.jpg)
 
 ---
 
